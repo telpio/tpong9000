@@ -66,17 +66,8 @@ paddleArray.push(paddleRight);
 paddlesReset();
 //END OF GAME OBJECTS///
 
-//STARTUP EVENTS - now waits for user interaction to unlock audio
-document.addEventListener("click", () => {
-  // Unlock Chrome audio
-  Tone.start();
-
-  // Play ambient sound normally
-  ambientSound.player.loop = true;
-  ambientSound.player.volume.value = -20;
-  ambientSound.player.playbackRate = 1;
-  ambientSound.play();
-}, { once: true }); // only run on the first click
+//STARTUP EVENTS
+ambientSound.play();
 
 //RUNNING PROCESSES (updated every frame of the game)
 function gameProcess() {
@@ -89,13 +80,6 @@ function gameProcess() {
     leftScoreHigher.turnOn();
   }
 
-  ambientSound.player.playbackRate = scalerange(
-    Math.abs(ball.direction.x),
-    0,
-    5,
-    1,
-    3
-  );
   //EVENTS
   // this is a non-persistant event so it only needs to be checked
   if (ballHitWall.state === true) {
