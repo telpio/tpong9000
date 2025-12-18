@@ -55,7 +55,7 @@ soundArray.push(scoreSound);
 export var ambientSound = new soundFile("aquamixdown2.mp3");
 soundArray.push(ambientSound);
 ambientSound.player.loop = true; //turn on looping
-ambientSound.player.volume.value = -20; //turn down volume 
+ambientSound.player.volume.value = 0; //turn down volume 
 ambientSound.player.playbackRate = 1;
 
 export var adventureMusic = new soundFile("silence.mp3");
