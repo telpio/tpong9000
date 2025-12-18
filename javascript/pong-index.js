@@ -5,23 +5,6 @@ STARTUP EVENTS - things that will run once when the game starts
 RUNNING PROCESSES - things that will run every frame
 */
 
-// --- FIX FOR GITHUB PAGES + CHROME AUDIO ISSUES ---
-// Unlock audio on first user interaction
-document.addEventListener("click", () => {
-  Tone.start();
-});
-
-// Force normal playback rate for ambient sound
-ambientSound.player.playbackRate = 1;
-
-// Optional: if you want modern routing (avoids quiet audio in some browsers)
-// Only change if your soundFile constructor still uses .toMaster()
-// ambientSound.player.toDestination();
-
-//Import Code From Other JS Modules
-//Sound functions and classes
-Tone.setContext(new Tone.Context({ sampleRate: 44100 }));
-
 import {
   wallSound,
   paddleSound,
@@ -52,6 +35,15 @@ import {
 //Utility functions
 import { clamp, scalerange, randomAdjust, boolToOnOff } from "./pong-util.js";
 //import * as Tone from "../lib/Tone.js";
+
+// Set audio context
+Tone.setContext(new Tone.Context({ sampleRate: 44100 }));
+
+// --- FIX FOR CHROME AUDIO ---
+document.addEventListener("click", () => {
+  Tone.start();
+});
+ambientSound.player.playbackRate = 1;
 
 //GAME OBJECTS///DON'T CHANGE THESE
 var updateInterval = 20; //game framerate
