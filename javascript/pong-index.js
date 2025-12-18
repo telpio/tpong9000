@@ -5,6 +5,18 @@ STARTUP EVENTS - things that will run once when the game starts
 RUNNING PROCESSES - things that will run every frame
 */
 
+// --- FIX FOR GITHUB PAGES + CHROME AUDIO ISSUES ---
+// Unlock audio on first user interaction
+document.addEventListener("click", () => {
+  Tone.start();
+});
+
+// Force normal playback rate for ambient sound
+ambientSound.player.playbackRate = 1;
+
+// Optional: if you want modern routing (avoids quiet audio in some browsers)
+// Only change if your soundFile constructor still uses .toMaster()
+// ambientSound.player.toDestination();
 
 //Import Code From Other JS Modules
 //Sound functions and classes
