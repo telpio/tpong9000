@@ -18,16 +18,15 @@ body {
 }
 
 #left-paddle {
-  background-color: black;
+  background-color: white;
   left: 10px;
-  height: 25px;
+  height: 15px;
 }
 
 #right-paddle {
-  background-color: black;
+  background-color: white;
   right: 10px;
- 
-  
+  height: 15px;
 }
 
 #instructions {
@@ -70,13 +69,13 @@ body {
 
 .paddle {
   top: 0;
-  width: 5px;
+  width: 3px;
   position: absolute;
 }
 
 .ball {
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
   background-color: white;
   border-radius: 10px;
   position: absolute;
